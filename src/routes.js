@@ -8,8 +8,10 @@ function routesConfig($stateProvider, $urlRouterProvider, $locationProvider) {
   $urlRouterProvider.otherwise('/');
 
   $stateProvider
-    .state('app', {
+    .state('content', {
       url: '/',
-      component: 'app'
+      templateUrl: 'app/content.html',
+      controller: 'ContentController',
+      controllerAs: 'vm'
     });
 }
