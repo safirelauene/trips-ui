@@ -1,8 +1,11 @@
-function ContentController() {
+/* @ngInject */
+function ContentController(ContentService) {
   const vm = this;
 
   function init() {
-    vm.hello = 'Hello World';
+    vm.hello = "teste"
+    vm.trips = ContentService.getTrips();
+    console.log(vm.trips)
   }
 
   init();
