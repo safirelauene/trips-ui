@@ -11,7 +11,8 @@ function ContentService() {
       origin:"Embraer SJC",
       destiny:"Senac",
       vehicleType: {
-        nome: "Carro comum",
+        id: 1,
+        name: "Carro comum",
         seats: 4,
       },
       passengers:[
@@ -29,7 +30,8 @@ function ContentService() {
       origin:"Embraer SJC",
       destiny:"Senac",
       vehicleType: {
-        nome: "Carro comum",
+        id: 1,
+        name: "Carro comum",
         seats: 4,
       },
       passengers:[
@@ -47,7 +49,8 @@ function ContentService() {
       origin:"Embraer SJC",
       destiny:"Senac",
       vehicleType: {
-        nome: "Carro comum",
+        id: 1,
+        name: "Carro comum",
         seats: 4,
       },
       passengers:[
@@ -65,7 +68,8 @@ function ContentService() {
       origin:"Embraer SJC",
       destiny:"Senac",
       vehicleType: {
-        nome: "Carro comum",
+        id: 1,
+        name: "Carro comum",
         seats: 4,
       },
       passengers:[
@@ -83,7 +87,8 @@ function ContentService() {
       origin:"Embraer SJC",
       destiny:"Senac",
       vehicleType: {
-        nome: "Carro comum",
+        id: 1,
+        name: "Carro comum",
         seats: 4,
       },
       passengers:[

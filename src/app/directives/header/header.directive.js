@@ -1,3 +1,6 @@
+/**
+ * Header directive
+ * */
 function Header() {
   const directive = {
     restrict: 'E',
@@ -17,8 +20,6 @@ function Header() {
 
   function HeaderController() {
     let ctrl = this;
-
-    ctrl.hello = 'Hello World';
   }
 
   return directive;

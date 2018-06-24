@@ -1,0 +1,33 @@
+<div class="trip-card">
+  <div class="row-flex space-between">
+    <span ng-bind="ctrl.trip.date"></span>
+    <span ng-bind="ctrl.trip.time"></span>
+  </div>
+  <div class="row-flex align-center">
+    <i class="fa fa-car item"></i>
+    <span class="item"ng-bind="ctrl.trip.vehicleType.name"></span>
+  </div>
+  <div class="places row-flex">
+    <div class="place-connector-area">
+      <div class="place-connector"></div>
+    </div>
+    <div class="">
+      <div class="row-flex">
+        <span ng-bind="ctrl.trip.origin"></span>
+      </div>
+      <div class="row-flex">
+        <span ng-bind="ctrl.trip.destiny"></span>
+      </div>
+    </div>
+  </div>
+  <div ng-repeat="passenger in ctrl.trip.passengers">
+    <div class="row-flex align-center">
+      <i class="fa fa-user item"></i>
+      <span class="item" ng-bind="passenger.name"></span>
+    </div>
+    <div class="row-flex align-center">
+      <i class="fa fa-phone item"></i>
+      <span class="item" ng-bind="passenger.phone"></span>
+    </div>
+  </div>
+</div>
