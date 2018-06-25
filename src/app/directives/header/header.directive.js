@@ -6,6 +6,7 @@ function Header() {
     restrict: 'E',
     replace: true,
     scope: {
+      btnAction: '='
     },
     templateUrl: 'app/directives/header/header.html',
     controller: HeaderController,
@@ -19,7 +20,11 @@ function Header() {
   }
 
   function HeaderController() {
-    let ctrl = this;
+    const ctrl = this;
+
+    ctrl.callToAction = () => {
+      ctrl.btnAction();
+    };
   }
 
   return directive;
