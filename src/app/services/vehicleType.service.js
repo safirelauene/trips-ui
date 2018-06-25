@@ -23,7 +23,8 @@ function VehicleTypeService() {
     this.vehicleTypes = vehicleTypes.map(vehicle => {
       return new VehicleType(vehicle)
     });
-    return this.vehicleTypes;
+    angular.extend(vehicleTypes, this.vehicleTypes)
+    return vehicleTypes;
   };
 
   const VehicleTypeService = {

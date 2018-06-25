@@ -4,12 +4,12 @@
     <div class="col-12">
       <ng-form name="vm.tripForm">
         <div class="form-group row">
-          <label for="date" class="col-sm-1 col-form-label">Data</label>*
+          <label for="date" class="col-sm-1 col-form-label">Data*</label>
           <div class="col-sm-2">
             <input type="text" class="form-control" id="date" name="date" ng-model="vm.trip.date" required>
             <small class="form-text danger" ng-show="vm.tripForm.date.$invalid && !vm.tripForm.date.$untouched">Campo obrigatório</small>
           </div>
-          <label for="time" class="col-sm-1 col-form-label">Hora</label>*
+          <label for="time" class="col-sm-1 col-form-label">Hora*</label>
           <div class="col-sm-2">
             <input type="text" class="form-control" id="time" name="time" ng-model="vm.trip.time" required>
             <small class="form-text danger" ng-show="vm.tripForm.time.$invalid && !vm.tripForm.time.$untouched">Campo obrigatório</small>

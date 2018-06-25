@@ -5,7 +5,7 @@ function ContentService() {
    * */
   const trips = [
     {
-      id: 1,
+      id: 8,
       date: "02/07/2018",
       time:"10:30",
       origin:"Embraer SJC",
@@ -105,7 +105,7 @@ function ContentService() {
    * Add trip on trip list
    * */
   const addTrip = trip => {
-    this.trips.push(trip);
+    trips.push(trip);
   };
 
   /**
@@ -115,7 +115,8 @@ function ContentService() {
     this.trips = trips.map(trip => {
       return new Trip(trip)
     });
-    return this.trips;
+    angular.extend(trips, this.trips)
+    return trips;
   };
 
   const ContentService = {
