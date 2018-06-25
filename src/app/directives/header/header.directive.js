@@ -6,7 +6,7 @@ function Header() {
     restrict: 'E',
     replace: true,
     scope: {
-      btnAction: '='
+      show: '='
     },
     templateUrl: 'app/directives/header/header.html',
     controller: HeaderController,
@@ -22,8 +22,11 @@ function Header() {
   function HeaderController() {
     const ctrl = this;
 
-    ctrl.callToAction = () => {
-      ctrl.btnAction();
+    /**
+     * To toggle display form trip request property
+     * */
+    ctrl.toggleShow = () => {
+      ctrl.show = !ctrl.show;
     };
   }
 

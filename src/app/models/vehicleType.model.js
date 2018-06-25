@@ -4,7 +4,7 @@
 *
 **/
 
-class vehicleType {
+class VehicleType {
 
   constructor(model) {
     this.id = model && model.id ? model.id : undefined;

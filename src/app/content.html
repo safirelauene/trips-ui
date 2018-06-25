@@ -1,4 +1,4 @@
-<header-component btn-action="vm.toggleDisplayForm"></header-component>
+<header-component show="vm.showForm"></header-component>
 <div class="trip-form-request" ng-class="{'hidden' : !vm.showForm }">
   <div class="row">
     <div class="col-12">
@@ -6,25 +6,24 @@
         <div class="form-group row">
           <label for="date" class="col-sm-1 col-form-label">Data</label>
           <div class="col-sm-2">
-            <input type="text" class="form-control" id="date">
+            <input type="text" class="form-control" id="date" ng-model="vm.trip.date">
           </div>
           <label for="time" class="col-sm-1 col-form-label">Hora</label>
           <div class="col-sm-2">
-            <input type="text" class="form-control" id="time">
+            <input type="text" class="form-control" id="time" ng-model="vm.trip.time">
           </div>
         </div>
         <div class="form-group">
           <label for="origin">Origem</label>
-          <input type="text" class="form-control" id="origin" >
+          <input type="text" class="form-control" id="origin" ng-model="vm.trip.origin">
         </div>
         <div class="form-group">
           <label for="destiny">Destino</label>
-          <input type="text" class="form-control" id="destiny" >
+          <input type="text" class="form-control" id="destiny" ng-model="vm.trip.destiny">
         </div>
         <div class="form-group">
           <label for="vehicleType">Tipo de veículo</label>
-          <select class="form-control" id="vehicleType">
-            <option>vehicle</option>
+          <select class="form-control" id="vehicleType" ng-options="vehicle as vehicle.name for vehicle in vm.vehicleTypes" ng-model="vm.trip.vehicleType">
           </select>
         </div>
         <div class="form-group border-bottom">
@@ -33,14 +32,22 @@
         <div class="form-group row">
           <label for="name" class="col-sm-1 col-form-label">Nome</label>
           <div class="col-sm-2">
-            <input type="text" class="form-control" id="name" >
+            <input type="text" class="form-control" id="name" ng-model="vm.passenger.name">
           </div>
           <label for="phone"  class="col-sm-1 col-form-label">Telefone</label>
           <div class="col-sm-2">
-            <input type="text" class="form-control" id="phone" >
+            <input type="text" class="form-control" id="phone" ng-model="vm.passenger.phone">
           </div>
           <div class="col-sm-1 ">
-            <button type="button" class="btn btn-dark">+</button>
+            <button type="button" class="btn btn-dark" ng-click="vm.addPassenger()">+</button>
+          </div>
+        </div>
+        <div class="form-group row" ng-repeat="passenger in vm.trip.passengers">
+          <div class="col-sm-3">
+            <span ng-bind="passenger.name"></span>
+          </div>
+          <div class="col-sm-2">
+            <span ng-bind="passenger.phone"></span>
           </div>
         </div>
         <div class="form-group row-flex flex-end">

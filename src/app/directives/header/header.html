@@ -1,4 +1,4 @@
 <header class="header">
   <span>SISTEMA DE GESTÃO DE TRANSPORTE</span>
-  <button type="button" class="btn btn-dark" ng-click="ctrl.callToAction()">SOLICITE UMA VIAGEM</button>
+  <button type="button" class="btn btn-dark" ng-class="{'hidden': ctrl.show}" ng-click="ctrl.toggleShow()">SOLICITE UMA VIAGEM</button>
 </header>

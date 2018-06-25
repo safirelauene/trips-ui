@@ -13,7 +13,7 @@ class Trip {
     this.origin = model && model.origin ? model.origin : undefined;
     this.origin = model && model.origin ? model.origin : undefined;
     this.destiny = model && model.destiny ? model.destiny : undefined;
-    this.vehicleType = new vehicleType(model.vehicleType);
+    this.vehicleType = model && model.vehicleType ? new VehicleType(model.vehicleType) : {};
     this.passengers = model && model.passengers ? buildPassengers(model.passengers) : [];
 
     function buildPassengers(passengers){

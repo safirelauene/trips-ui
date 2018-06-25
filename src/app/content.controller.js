@@ -1,17 +1,38 @@
 /* @ngInject */
-function ContentController(ContentService) {
+function ContentController(ContentService, VehicleTypeService) {
+  /* global Trip */
+  /* global Passenger */
+
   const vm = this;
 
   /**
-   * To toggle display form trip request property
+   * To add passenger into trip object
    * */
-  vm.toggleDisplayForm = () => {
-    vm.showForm = !vm.showForm;
+  vm.addPassenger = () => {
+    vm.trip.passengers.push(new Passenger(vm.passenger));
+    vm.resetPassenger();
+  };
+
+  /**
+   * To clean or create empty passenger object
+   * */
+  vm.resetPassenger = () => {
+    vm.passenger = new Passenger();
+  };
+
+  /**
+   * To clean or create empty trip object
+   * */
+  vm.resetTrip = () => {
+    vm.trip = new Trip();
   };
 
   function init() {
     vm.trips = ContentService.getTrips();
+    vm.vehicleTypes = VehicleTypeService.getVehicleTypes();
     vm.showForm = false;
+    vm.resetTrip();
+    vm.resetPassenger();
   }
 
   init();
