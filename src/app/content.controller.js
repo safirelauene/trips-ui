@@ -6,10 +6,26 @@ function ContentController(ContentService, VehicleTypeService) {
   const vm = this;
 
   /**
+   * To save trip request
+   * */
+  vm.addTrip = () => {
+    if (vm.trip.passengers.length > 0) {
+      ContentService.addTrip(vm.trip);
+      vm.resetTrip();
+      vm.resetPassenger();
+      vm.tripForm.$setPristine();
+      vm.tripForm.$setUntouched();
+    } else {
+      vm.displayPassengerError = true;
+    }
+  };
+
+  /**
    * To add passenger into trip object
    * */
   vm.addPassenger = () => {
     vm.trip.passengers.push(new Passenger(vm.passenger));
+    vm.displayPassengerError = false;
     vm.resetPassenger();
   };
 
@@ -31,6 +47,7 @@ function ContentController(ContentService, VehicleTypeService) {
     vm.trips = ContentService.getTrips();
     vm.vehicleTypes = VehicleTypeService.getVehicleTypes();
     vm.showForm = false;
+    vm.displayPassengerError = false;
     vm.resetTrip();
     vm.resetPassenger();
   }

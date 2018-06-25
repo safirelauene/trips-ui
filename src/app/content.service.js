@@ -102,6 +102,13 @@ function ContentService() {
   ];
 
   /**
+   * Add trip on trip list
+   * */
+  const addTrip = trip => {
+    this.trips.push(trip);
+  };
+
+  /**
    * Return all trips
    **/
   const getTrips = () => {
@@ -112,7 +119,8 @@ function ContentService() {
   };
 
   const ContentService = {
-    getTrips         : getTrips
+    getTrips         : getTrips,
+    addTrip          : addTrip
   };
 
   return ContentService;

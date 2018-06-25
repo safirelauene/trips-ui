@@ -2,32 +2,38 @@
 <div class="trip-form-request" ng-class="{'hidden' : !vm.showForm }">
   <div class="row">
     <div class="col-12">
-      <form>
+      <ng-form name="vm.tripForm">
         <div class="form-group row">
-          <label for="date" class="col-sm-1 col-form-label">Data</label>
+          <label for="date" class="col-sm-1 col-form-label">Data</label>*
           <div class="col-sm-2">
-            <input type="text" class="form-control" id="date" ng-model="vm.trip.date">
+            <input type="text" class="form-control" id="date" name="date" ng-model="vm.trip.date" required>
+            <small class="form-text danger" ng-show="vm.tripForm.date.$invalid && !vm.tripForm.date.$untouched">Campo obrigatório</small>
           </div>
-          <label for="time" class="col-sm-1 col-form-label">Hora</label>
+          <label for="time" class="col-sm-1 col-form-label">Hora</label>*
           <div class="col-sm-2">
-            <input type="text" class="form-control" id="time" ng-model="vm.trip.time">
+            <input type="text" class="form-control" id="time" name="time" ng-model="vm.trip.time" required>
+            <small class="form-text danger" ng-show="vm.tripForm.time.$invalid && !vm.tripForm.time.$untouched">Campo obrigatório</small>
           </div>
         </div>
         <div class="form-group">
-          <label for="origin">Origem</label>
-          <input type="text" class="form-control" id="origin" ng-model="vm.trip.origin">
+          <label for="origin">Origem</label>*
+          <input type="text" class="form-control" id="origin" name="origin" ng-model="vm.trip.origin" required>
+          <small class="form-text danger" ng-show="vm.tripForm.origin.$invalid && !vm.tripForm.origin.$untouched">Campo obrigatório</small>
+
         </div>
         <div class="form-group">
-          <label for="destiny">Destino</label>
-          <input type="text" class="form-control" id="destiny" ng-model="vm.trip.destiny">
+          <label for="destiny">Destino</label>*
+          <input type="text" class="form-control" id="destiny" name="destiny" ng-model="vm.trip.destiny" required>
+          <small class="form-text danger" ng-show="vm.tripForm.destiny.$invalid && !vm.tripForm.destiny.$untouched">Campo obrigatório</small>
         </div>
         <div class="form-group">
-          <label for="vehicleType">Tipo de veículo</label>
-          <select class="form-control" id="vehicleType" ng-options="vehicle as vehicle.name for vehicle in vm.vehicleTypes" ng-model="vm.trip.vehicleType">
+          <label for="vehicleType">Tipo de veículo</label>*
+          <select class="form-control" id="vehicleType" name="vehicleType" ng-options="vehicle as vehicle.name for vehicle in vm.vehicleTypes" ng-model="vm.trip.vehicleType" ng-required="true">
           </select>
+          <small class="form-text danger" ng-show="vm.tripForm.vehicleType.$invalid && !vm.tripForm.vehicleType.$untouched">Campo obrigatório</small>
         </div>
         <div class="form-group border-bottom">
-          <label>Passageiros</label>
+          <label>Passageiros</label>*
         </div>
         <div class="form-group row">
           <label for="name" class="col-sm-1 col-form-label">Nome</label>
@@ -50,13 +56,17 @@
             <span ng-bind="passenger.phone"></span>
           </div>
         </div>
-        <div class="form-group row-flex flex-end">
-          <button type="submit" class="btn btn-dark mb-2">SOLICITAR VIAGEM</button>
+        <div class="form-group row-flex space-between">
+          <small class="form-text text-muted">* Campos obrigatórios</small>
+          <button type="submit" class="btn btn-dark mb-2" ng-disabled="vm.tripForm.$invalid" ng-click="vm.addTrip()">SOLICITAR VIAGEM</button>
         </div>
-      </form>
+      </ng-form>
+      <div class="alert alert-danger" role="alert" ng-if="vm.displayPassengerError">
+        Verifique se há pelo menos um passageiro adicionado.
+      </div>
     </div>
   </div>
 </div>
 <div class="content">
-  <trip-card trip=trip ng-repeat="trip in vm.trips"></trip-card>
+  <trip-card trip=trip ng-repeat="trip in vm.trips track by $index"></trip-card>
 </div>
